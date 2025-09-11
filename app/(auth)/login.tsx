@@ -1,4 +1,4 @@
-import {Pressable, StyleSheet, Text, View} from 'react-native'
+import {Keyboard, Pressable, StyleSheet, Text, TouchableWithoutFeedback, View} from 'react-native'
 import {Link} from 'expo-router'
 import ThemedView from "../../components/ThemedView"
 import ThemedText from "../../components/ThemedText"
@@ -17,6 +17,7 @@ const Login = () => {
     }
 
     return (
+        <TouchableWithoutFeedback onPress = {Keyboard.dismiss}>
      <ThemedView style = {styles.container}>
 
          <ThemedText style = {styles.title} title = {true}>
@@ -24,7 +25,7 @@ const Login = () => {
          </ThemedText>
 
          <ThemedTextInput
-             placeholder = 'Email'
+             placeholder  = 'Email'
              keyboardType = 'email-address'
              style = {{width : '80%',marginBottom:20}}
              onChangeText = {setEmail}
@@ -52,6 +53,7 @@ const Login = () => {
          </Link>
 
      </ThemedView>
+        </TouchableWithoutFeedback>
     )
 }
 export default Login
