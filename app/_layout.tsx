@@ -3,14 +3,15 @@ import React from 'react'
 import {Stack} from "expo-router";
 import {Colors} from "../constants/Colors";
 import {StatusBar} from "expo-status-bar";
+import {UserProvider} from "../context/UserContext";
 
-const _Layout = () => {
+const RootLayout = () => {
 
     const colorScheme = useColorScheme();
     const theme = Colors[colorScheme as 'light' | 'dark'] ?? Colors.light;
 
     return (
-        <>
+        <UserProvider>
             <StatusBar style="auto"/>
           <Stack screenOptions = {{
               headerTitleAlign: 'center',
@@ -21,8 +22,8 @@ const _Layout = () => {
               <Stack.Screen name= '(auth)' options={{headerShown: false, }}/>
               <Stack.Screen name= '(dashboard)' options={{headerShown: false, }}/>
           </Stack>
-            </>
+            </UserProvider>
     )
 }
-export default _Layout
+export default RootLayout
 const styles = StyleSheet.create({})

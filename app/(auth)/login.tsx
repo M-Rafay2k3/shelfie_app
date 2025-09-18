@@ -8,10 +8,15 @@ import {Colors} from "../../constants/Colors";
 import ThemedButton from "../../components/ThemedButton";
 import ThemedTextInput from "../../components/ThemedTextInput";
 import {useState} from "react";
+import {useUser} from "../../hooks/useUser";
+import{UserContext} from "../../context/UserContext";
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+
+const {user} = useUser();
+
     const handleSubmit = () => {
         console.log('register form submitted',email,password);
     }
